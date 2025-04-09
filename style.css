@@ -1,0 +1,219 @@
+/* === Import Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@500&display=swap');
+
+/* === Base styles === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  color: #000;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+#controls {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+#controls button,
+#controls select {
+  flex-shrink: 0;
+}
+
+#mealFilter {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #ff6f61;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e55a4c;
+}
+
+#chatbox {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+#chatbox::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chatbox::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 5px;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  max-width: 80%;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation: slideFade 0.3s ease;
+}
+
+@keyframes slideFade {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.message.user {
+  background-color: #d0f0c0;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #eee;
+  align-self: flex-start;
+}
+
+.recipe-image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+mark {
+  background: yellow;
+  color: black;
+  font-weight: bold;
+}
+
+#inputArea {
+  display: flex;
+  border-top: 1px solid #ccc;
+  background: #fff;
+  padding: 0.7rem 0.75rem;
+}
+
+#inputArea input {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === Dark mode === */
+body.dark {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+body.dark header {
+  background-color: #222;
+}
+
+body.dark #controls,
+body.dark #inputArea {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark .message.bot {
+  background-color: #2a2a2a;
+}
+
+body.dark .message.user {
+  background-color: #345f3d;
+}
+
+body.dark button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark button:hover {
+  background-color: #444;
+}
+
+/* === Meal type icons === */
+.breakfast-icon::before {
+  content: "🥞 ";
+}
+
+.lunch-icon::before {
+  content: "🍱 ";
+}
+
+.dinner-icon::before {
+  content: "🍲 ";
+}
+
+/* === Responsive Layout for Small Screens === */
+@media (max-width: 600px) {
+  #controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #controls > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  button {
+    flex: 1 1 48%;
+  }
+
+  #inputArea {
+    flex-direction: column;
+  }
+
+  #inputArea input,
+  #inputArea button {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+}
+
+
+
+  
+   

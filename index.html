@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CookMate</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#f57c00" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+</head>
+<body>
+  
+  <header>🍳 CookMate</header>
+
+  <!-- Main App Area -->
+  <div id="mainApp">
+    <div id="controls" class="controls">
+      <select id="mealFilter">
+        <option value="">All Meals</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+      </select>
+      <div>
+        <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="startVoiceInput()" aria-label="Start voice input">🎤</button>
+        <button onclick="clearChat()" aria-label="Clear chat">🗑️</button>
+        <button onclick="exportFavorites('json')" aria-label="Export favorites as JSON">💾</button>
+        <button onclick="exportFavorites('text')" aria-label="Export favorites as text">📝</button>
+        <button onclick="showFavorites()" aria-label="Show favorites">⭐</button>
+        <button onclick="promptCustomRecipe()" aria-label="Add custom recipe">➕</button>
+      </div>
+    </div>
+
+    <main>
+      <div id="chatbox" class="chatbox"></div>
+      <div id="inputArea" class="input-area">
+        <input type="text" id="userInput" placeholder="Enter ingredients..." />
+        <button onclick="handleUserInput()">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered:', reg.scope))
+          .catch(err => console.error('❌ Service Worker registration failed:', err));
+      });
+    }
+  </script>
+  
+</body>
+</html>
+
+
+  
+
+
+
+
